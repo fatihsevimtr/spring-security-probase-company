@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -19,8 +20,9 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
+@EnableOAuth2Sso
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
-	
+	/*
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -33,15 +35,15 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 		return provider;
 		
 	}
-
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	
 		http.
 			csrf().disable()
 			.authorizeRequests().antMatchers("/login").permitAll()
-			.anyRequest().authenticated()
-			.and()
+			.anyRequest().authenticated();
+			/*.and()
 			.formLogin()
 			.loginPage("/login").permitAll()
 			.and()
@@ -49,7 +51,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 			.clearAuthentication(true)
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.logoutSuccessUrl("/logout-success").permitAll();
-			
+			*/
 			
 	}
 	

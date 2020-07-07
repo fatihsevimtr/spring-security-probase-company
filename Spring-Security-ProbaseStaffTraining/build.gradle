@@ -20,6 +20,9 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper
 	compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.36'
+	// https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure
+	compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.1.2.RELEASE'
+	
 	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
